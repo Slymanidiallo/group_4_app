@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import re
 import base64
+from pathlib import Path
+
+DATA_DIR = Path(__file__).resolve().parent
 
 # Function to convert an image to base64
 def get_base64_of_image(image_file):
@@ -14,7 +17,7 @@ def get_base64_of_image(image_file):
         return base64.b64encode(img.read()).decode()
 
 # Set the path to your local image
-image_path = "image.jpg"  # Replace with your local image path
+image_path = DATA_DIR / "image.jpg"
 img_base64 = get_base64_of_image(image_path)
 
 # Define the CSS for the background image
@@ -150,9 +153,9 @@ if choices == 'Scrape data using BeautifulSoup':
 
 elif choices == 'Download scraped data':
     # Load existing data
-    voiture = pd.read_csv('datas/Voitures.csv')
-    motocycle = pd.read_csv('datas/cars.csv')
-    equipement = pd.read_csv('datas/equipement.csv')
+    voiture = pd.read_csv(DATA_DIR / 'Voitures.csv')
+    motocycle = pd.read_csv(DATA_DIR / 'cars.csv')
+    equipement = pd.read_csv(DATA_DIR / 'equipement.csv')
 
     # Display buttons for each DataFrame
     if st.button('Show Vehicles Data'):
@@ -164,9 +167,9 @@ elif choices == 'Download scraped data':
 
 elif choices == 'Dashboard of the data':
     # Load data for dashboard
-    df1 = pd.read_csv('datas/vehicule.csv')
-    df2 = pd.read_csv('datas/moto.csv')
-    df3 = pd.read_csv('datas/pièces.csv')
+    df1 = pd.read_csv(DATA_DIR / 'vehicule.csv')
+    df2 = pd.read_csv(DATA_DIR / 'moto.csv')
+    df3 = pd.read_csv(DATA_DIR / 'pièces.csv')
 
     # Dashboard visualizations
     col1, col2, col3 = st.columns(3)
