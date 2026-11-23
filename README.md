@@ -30,7 +30,7 @@ pip install -r requirements.txt
 streamlit run Group4.py
 ```
 
-The application expects the local image `image.jpg` and, for the CSV/dashboard options, datasets under a `datas/` directory. Check that these paths match the files in your checkout before launching those options.
+The application reads `image.jpg` and the CSV files from the repository root. The file paths in `Group4.py` have been aligned with the files currently tracked at the root (`Voitures.csv`, `cars.csv`, `equipement.csv`, `vehicule.csv`, `moto.csv` and `pièces.csv`).
 
 ### Team
 - Rokhaya Diop
